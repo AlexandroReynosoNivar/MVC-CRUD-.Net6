@@ -1,0 +1,51 @@
+﻿@model SisalrilProject.Models.Edificio
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>Edificios</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdEdificio" class="control-label"></label>
+                <input asp-for="IdEdificio" class="form-control" />
+                <span asp-validation-for="IdEdificio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EdificioDireccion" class="control-label"></label>
+                <input asp-for="EdificioDireccion" class="form-control" />
+                <span asp-validation-for="EdificioDireccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoEdificio" class="control-label"></label>
+                <input asp-for="TipoEdificio" class="form-control" />
+                <span asp-validation-for="TipoEdificio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NivelCalidad" class="control-label"></label>
+                <input asp-for="NivelCalidad" class="form-control" />
+                <span asp-validation-for="NivelCalidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categoria" class="control-label"></label>
+                <input asp-for="Categoria" class="form-control" />
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

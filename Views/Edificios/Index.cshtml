@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SisalrilProject.Models.Edificio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Edificios</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEdificio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EdificioDireccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoEdificio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NivelCalidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEdificio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EdificioDireccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoEdificio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivelCalidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdEdificio">Editar</a> |
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdEdificio">Detalles</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdEdificio">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

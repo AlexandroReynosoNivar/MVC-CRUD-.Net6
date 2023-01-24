@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SisalrilProject.Models.Asignacione>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Asignaciones</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAsignacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AsignacionFechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AsignacionNoDias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEdificioNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTrabajadorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAsignacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsignacionFechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsignacionNoDias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEdificioNavigation.IdEdificio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTrabajadorNavigation.IdTrabajador)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdAsignacion">Editar</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdAsignacion">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdAsignacion">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
